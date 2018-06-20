@@ -1,0 +1,43 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+  Footbal tables
+{%endblock%}
+
+{% block body %}
+<div class="container">
+
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{{ url_for('index') }}">Football competitions</a>
+    </div>
+  </div>
+</nav>
+
+  {% block contetnt %}
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Competiotion</th>
+          <th scope="col">Number of teams</th>
+        </tr>
+      </theads>
+      <tbody>
+        {% for league in leagues %}
+        <tr>
+          <td>
+            <a href= "/competitions/{{ league.id }}/leagueTable">
+              {{ league.name }}
+            </a>
+          </td>
+          <td>
+            {{ league.numberOfTeams }}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endblock %}
+  </div>
+{% endblock %}

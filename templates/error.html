@@ -1,0 +1,9 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}Something went wrong{% endblock %}
+{% block body %}
+  <div class="container">
+      <h1>Something went wrong</h1>
+      <p><a href="{{ url_for('index') }}">Go home...</a>
+  </div>
+
+{% endblock %}

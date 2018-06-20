@@ -1,0 +1,67 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+  Footbal tables
+{%endblock%}
+
+{% block body %}
+<div class="container">
+
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{{ url_for('index') }}">Football competitions</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <p class="navbar-text">{{ competitionName }}</p>
+    </ul>
+  </div>
+</nav>
+
+  {% block contetnt %}
+
+  <audio controls="controls" autoplay="autoplay">
+      <source src="/static/{{ audioFileName }}.wav" type="audio/wav">
+  </audio>
+
+  <div class="table-responsive">
+    <table class="table table-bordered text-center">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col" >Position</th>
+          <th scope="col">Team</th>
+          <th scope="col" width="auto">Matches played</th>
+          <th scope="col">Wins</th>
+          <th scope="col">Draws</th>
+          <th scope="col">Losses</th>
+          <th scope="col">Score</th>
+          <th scope="col">Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for team in teamsTable %}
+        <tr>
+          <td> {{ team.position }} </td>
+          <td align="left">
+            <img src='{{ team.logoHref }}' width="32" height="32" >
+              <b>&nbsp;{{ team.name }}</b>
+          </td>
+          <td>{{ team.playedGames }}</td>
+          <td>{{ team.wins }}</td>
+          <td>{{ team.draws }}</td>
+          <td>{{ team.losses }}</td>
+          <td>{{ team.goals }}:{{ team.goalsAgainst }}</td>
+          <td>{{ team.points }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% endblock %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+{% endblock %}

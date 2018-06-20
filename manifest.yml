@@ -1,0 +1,7 @@
+---
+applications:
+ - name: FootballTables
+   host: FootballTables
+   domain: eu-gb.mybluemix.net
+   random-route: false
+   memory: 256M

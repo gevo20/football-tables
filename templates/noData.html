@@ -1,0 +1,9 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}Missing data{% endblock %}
+{% block body %}
+  <div class="container">
+      <h2 class="h2">Data for reqeusted competition are not available </h2>
+      <p><a href="{{ url_for('index') }}">Go home...</a>
+  </div>
+
+{% endblock %}
